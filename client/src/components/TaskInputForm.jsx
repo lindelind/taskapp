@@ -34,7 +34,7 @@ export const TaskInputForm = () => {
 
   return (
     <>
-      <button onClick={openModal}>➕ Lägg till task</button>
+      <button className="add-task-btn" onClick={openModal}>➕ Lägg till task</button>
       <div className={`modal ${isModalOpen ? "open" : ""}`}>
         <div className="modal-content">
           <h2>Lägg till ny task</h2>
@@ -57,7 +57,7 @@ export const TaskInputForm = () => {
               onChange={(e) => setDueDate(e.target.value)}
             />
             <div className="modal-buttons">
-              <button type="submit">Spara</button>
+              <button className="save-btn" type="submit">Spara</button>
               <button type="button" onClick={closeModal}>
                 Avbryt
               </button>

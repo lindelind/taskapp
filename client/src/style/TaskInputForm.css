@@ -1,3 +1,4 @@
+
 .modal {
   display: none;
   position: fixed;
@@ -38,4 +39,31 @@ textarea {
   padding: 0.5rem;
   border-radius: 6px;
   border: 1px solid #ccc;
+}
+
+.add-task-btn, .modal-buttons button {
+  color:#360652;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border: 2px solid #360652;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.add-task-btn:hover, .modal-buttons button:hover {
+  background: #450465;
+  color: white;
+  transition: ease-in 0.2s;
+}
+
+.modal-buttons .save-btn{
+  background: #450465;
+  color: white;
+  transition: ease-in 0.2s;
+
+}
+
+.modal-buttons .save-btn:hover{
+  background: white;
+  transition: ease-in 0.2s;
+  color: #450465;
 }
