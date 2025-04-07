@@ -44,8 +44,13 @@ export const TaskProvider = ({ children }) => {
      return updatedTasks;
    });
  };
+
+ const deleteTask = (taskId) => {
+   localStorage.removeItem(taskId);
+   setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+ };
   return (
-    <TaskContext.Provider value={{ tasks, addTask, fetchTasks, toggleDone }}>
+    <TaskContext.Provider value={{ tasks, addTask, fetchTasks, toggleDone, deleteTask }}>
       {children}
     </TaskContext.Provider>
   );
