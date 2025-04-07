@@ -1,14 +1,9 @@
-import './App.css'
+import "./style/App.css"
 
-function App() {
-
-
+export const App = () => {
   return (
-    <>
-      App
-        
-    </>
-  )
+    <div>
+      <h1>Task App</h1>
+    </div>
+  );
 }
-
-export default App
