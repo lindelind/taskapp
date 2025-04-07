@@ -5,6 +5,44 @@
   padding: 1rem;
 }
 
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.task-item {
+  transition: background-color 0.3s ease;
+}
+
+.task-item.done {
+  background-color: #d4f8d4;
+  text-decoration: line-through;
+  color: rgb(126, 125, 125);
+}
+
+.task-item td {
+  padding: 1rem;
+}
+
 .status-toggle-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row-separator {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0;
+  width: 100%;
+}
+
+.delete-btn {
 cursor: pointer;
+color: red;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
 }

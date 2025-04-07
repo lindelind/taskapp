@@ -41,6 +41,10 @@ textarea {
   border: 1px solid #ccc;
 }
 
+.add-task-btn {
+    margin-bottom: 30px;
+}
+
 .add-task-btn, .modal-buttons button {
   color:#360652;
   background-color: white;
