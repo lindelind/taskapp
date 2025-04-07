@@ -1,8 +1,10 @@
 import "../style/TaskInputForm.css";
 import { useState } from "react";
+import { useTaskContext } from "../context/TaskContext";
 
 export const TaskInputForm = () => {
   
+  const { addTask } = useTaskContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -22,6 +24,7 @@ export const TaskInputForm = () => {
       done: false,
     };
 
+     addTask(newTask);
 
     setTitle("");
     setDescription("");
