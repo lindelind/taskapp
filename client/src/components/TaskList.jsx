@@ -1,9 +1,11 @@
 import "../style/TaskList.css";
 import React from "react";
 import { useTaskContext } from "../context/TaskContext";
+import { GiCircle } from "react-icons/gi";
+import { CiCircleCheck } from "react-icons/ci";
 
 export const TaskList = () => {
-  const { tasks} = useTaskContext();
+  const { tasks,toggleDone } = useTaskContext();
 
   return (
     <div className="task-list">
@@ -29,13 +31,24 @@ export const TaskList = () => {
                 <td>{task.title}</td>
                 <td>{task.description}</td>
                 <td>{task.dueDate}</td>
-                <td>{task.done ? "Done" : "Not Done"}</td>
+                <td>
+                  <div
+                    className="status-toggle-btn"
+                    onClick={() => toggleDone(task.id)}
+                  >
+                    {task.done ? (
+                      <CiCircleCheck color="green" />
+                    ) : (
+                      <GiCircle color="red" />
+                    )}
+                  </div>
+                </td>
               </tr>
-                <tr>
-                  <td colSpan="5">
-                    <hr />
-                  </td>
-                </tr>
+              <tr>
+                <td colSpan="5">
+                  <hr />
+                </td>
+              </tr>
             </React.Fragment>
           ))}
         </tbody>
@@ -43,4 +56,3 @@ export const TaskList = () => {
     </div>
   );
 };
-

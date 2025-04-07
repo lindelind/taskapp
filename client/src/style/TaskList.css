@@ -4,3 +4,7 @@
   gap: 1rem;
   padding: 1rem;
 }
+
+.status-toggle-btn {
+cursor: pointer;
+}

@@ -31,8 +31,21 @@ export const TaskProvider = ({ children }) => {
      setTasks(storedTasks);
    };
 
+ const toggleDone = (taskId) => {
+   setTasks((prevTasks) => {
+     const updatedTasks = prevTasks.map((task) =>
+       task.id === taskId ? { ...task, done: !task.done } : task
+     );
+     const updatedTask = updatedTasks.find((task) => task.id === taskId);
+     if (updatedTask) {
+       localStorage.setItem(taskId, JSON.stringify(updatedTask));
+     }
+
+     return updatedTasks;
+   });
+ };
   return (
-    <TaskContext.Provider value={{ tasks, addTask, fetchTasks }}>
+    <TaskContext.Provider value={{ tasks, addTask, fetchTasks, toggleDone }}>
       {children}
     </TaskContext.Provider>
   );
