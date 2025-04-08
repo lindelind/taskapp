@@ -10,13 +10,25 @@
   border-collapse: collapse;
 }
 
+.task-table th,
+.task-table td {
+  width: 20%; 
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
+.task-table {
+  table-layout: fixed;
+}
+
 .task-item {
   transition: background-color 0.3s ease;
 }
 
 .task-item.done {
   background-color: #d4f8d4;
-  text-decoration: line-through;
   color: rgb(126, 125, 125);
 }
 
@@ -33,7 +45,7 @@
 
 .row-separator {
   border: none;
-  border-top: 1px solid #ccc;
+  border-top: 0.5px solid #ccc;
   margin: 0;
   width: 100%;
 }

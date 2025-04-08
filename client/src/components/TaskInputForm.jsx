@@ -9,18 +9,20 @@ export const TaskInputForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
+  const [dueTime, setDueTime] = useState("");
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const dueDateTime = `${dueDate}T${dueTime}`;
 
     const newTask = {
       id: Date.now().toString(),
       title,
       description,
-      dueDate,
+      dueDate: dueDateTime,
       done: false,
     };
 
@@ -29,6 +31,7 @@ export const TaskInputForm = () => {
     setTitle("");
     setDescription("");
     setDueDate("");
+    setDueTime("");
     closeModal();
   };
 
@@ -55,6 +58,14 @@ export const TaskInputForm = () => {
               type="date"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
+              required
+            />
+            <input
+              type="time"
+              value={dueTime}
+              onChange={(e) => setDueTime(e.target.value)}
+              required
+             
             />
             <div className="modal-buttons">
               <button className="save-btn" type="submit">Spara</button>
