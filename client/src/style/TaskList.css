@@ -12,15 +12,26 @@
 
 .task-table th,
 .task-table td {
-  width: 20%; 
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 
+.task-table th:last-child,
+.task-table th:nth-last-child(2),
+.task-table td:last-child,
+.task-table td:nth-last-child(2) {
+  width: 5%;
+  
+}
+
+.task-table th:not(:last-child):not(:nth-last-child(2)),
+.task-table td:not(:last-child):not(:nth-last-child(2)) {
+  width: 30%;
+}
 
 .task-table {
-  table-layout: fixed;
+  table-layout: auto;
 }
 
 .task-item {
