@@ -49,8 +49,17 @@ export const TaskProvider = ({ children }) => {
    localStorage.removeItem(taskId);
    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
  };
+
+
+ const updateTask = (updatedTask) => {
+   localStorage.setItem(updatedTask.id, JSON.stringify(updatedTask));
+   setTasks((prevTasks) =>
+     prevTasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+   );
+  }
+
   return (
-    <TaskContext.Provider value={{ tasks, addTask, fetchTasks, toggleDone, deleteTask }}>
+    <TaskContext.Provider value={{ tasks, addTask, fetchTasks, toggleDone, deleteTask, updateTask }}>
       {children}
     </TaskContext.Provider>
   );
