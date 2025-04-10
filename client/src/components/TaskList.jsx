@@ -1,10 +1,21 @@
 import {TaskTable} from "./TaskTable";
 import { useTaskContext } from "../context/TaskContext";
+import { useState } from "react";
+import { TaskEditForm } from "./TaskEditForm";
 
 export const TaskList = () => {
   const { tasks, toggleDone, deleteTask } = useTaskContext();
+  const [selectedTask, setSelectedTask] = useState(null);
   const todoTasks = tasks.filter((task) => !task.done);
   const doneTasks = tasks.filter((task) => task.done);
+
+  const handleEditTask = (task) => {
+    setSelectedTask(task);
+  };
+
+  const closeModal = () => {
+    setSelectedTask(null);
+  };
 
   const totalTasks = tasks.length;
   const completedTasks = doneTasks.length;
@@ -22,6 +33,7 @@ export const TaskList = () => {
         tasks={todoTasks}
         toggleDone={toggleDone}
         deleteTask={deleteTask}
+        updateTask={handleEditTask}
         isDone={false}
       />
 
@@ -30,8 +42,12 @@ export const TaskList = () => {
         tasks={doneTasks}
         toggleDone={toggleDone}
         deleteTask={deleteTask}
+        updateTask={handleEditTask}
         isDone={true}
       />
+      {selectedTask && (
+        <TaskEditForm task={selectedTask} closeModal={closeModal} />
+      )}
     </div>
   );
 };

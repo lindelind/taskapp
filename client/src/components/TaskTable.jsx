@@ -4,8 +4,9 @@ import React from "react";
 import { GiCircle } from "react-icons/gi";
 import { CiCircleCheck } from "react-icons/ci";
 import { AiFillDelete } from "react-icons/ai";
+import { MdOutlineEdit } from "react-icons/md";
 
-export const TaskTable = ({ tasks, toggleDone, deleteTask, isDone }) => (
+export const TaskTable = ({ tasks, toggleDone, deleteTask, isDone, updateTask }) => (
   <table className={`task-table ${isDone ? "done-table" : ""}`}>
     <thead>
       <tr>
@@ -46,9 +47,12 @@ export const TaskTable = ({ tasks, toggleDone, deleteTask, isDone }) => (
                 )}
               </div>
             </td>
-            <td>
+            <td className="action-buttons">
               <div className="delete-btn" onClick={() => deleteTask(task.id)}>
                 <AiFillDelete />
+              </div>
+              <div className="edit-btn" onClick={() => updateTask(task)}>
+                <MdOutlineEdit />
               </div>
             </td>
           </tr>
