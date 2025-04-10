@@ -7,13 +7,13 @@ export const TaskEditForm = ({ task, closeModal }) => {
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [dueTime, setDueTime] = useState("");
+  const [id, setId] = useState("");
 
   useEffect(() => {
     if (task) {
+      setId(task.id);
       setTitle(task.title || "");
       setDescription(task.description || "");
-      setFile(task.file || null);
-      setFileName(task.fileName || "");
       setDueDate(task.dueDate ? task.dueDate.split("T")[0] : "");
       setDueTime(
         task.dueDate
@@ -44,6 +44,7 @@ export const TaskEditForm = ({ task, closeModal }) => {
     <div className="modal open">
       <div className="modal-content">
         <h2>Redigera {title}</h2>
+        <i>ID: {id}</i>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
