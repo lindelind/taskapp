@@ -7,8 +7,6 @@ export const TaskEditForm = ({ task, closeModal }) => {
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [dueTime, setDueTime] = useState("");
-  const [file, setFile] = useState(null);
-  const [fileName, setFileName] = useState("");
 
   useEffect(() => {
     if (task) {
@@ -35,8 +33,6 @@ export const TaskEditForm = ({ task, closeModal }) => {
       ...task,
       title,
       description,
-      file,
-      fileName,
       dueDate: dueDate && dueTime ? `${dueDate}T${dueTime}` : dueDate || null,
     };
 
