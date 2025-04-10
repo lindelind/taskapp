@@ -22,7 +22,7 @@
 .task-table td:last-child,
 .task-table td:nth-last-child(2) {
   width: 5%;
-  
+
 }
 
 .task-table th:not(:last-child):not(:nth-last-child(2)),
@@ -80,4 +80,10 @@ color: red;
 
 tbody tr:hover {
   background-color: #f1f1f1;
+}
+
+.no-tasks-message {
+  text-align: center;
+  font-style: italic;
+  color: gray;
 }

@@ -23,7 +23,14 @@ export const TaskTable = ({ tasks, toggleDone, deleteTask, isDone, updateTask })
           <hr className="row-separator" />
         </td>
       </tr>
-      {tasks.map((task) => (
+      {tasks.length === 0 ? (
+        <tr>
+          <td colSpan="5" className="no-tasks-message">
+            Inga tasks i listan
+          </td>
+        </tr>
+      ) : (
+      tasks.map((task) => (
         <React.Fragment key={task.id}>
           <tr className={`task-item ${isDone ? "done" : ""}`}>
             <td>{task.title}</td>
@@ -62,7 +69,7 @@ export const TaskTable = ({ tasks, toggleDone, deleteTask, isDone, updateTask })
             </td>
           </tr>
         </React.Fragment>
-      ))}
+      )))}
     </tbody>
   </table>
 );
