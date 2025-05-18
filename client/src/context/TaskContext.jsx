@@ -3,13 +3,15 @@ import { createContext, useContext, useState, useEffect, use } from "react";
 const TaskContext = createContext();
 
 export const TaskProvider = ({ children }) => {
-    const [tasks, setTasks] = useState([]);
-    const [notification, setNotification] = useState({ message: "", type: "" });
+  const [tasks, setTasks] = useState([]);
+  const [notification, setNotification] = useState({ message: "", type: "" });
 
-    const showNotification = (message, type = "success") => {
-      setNotification({ message, type });
-      setTimeout(() => setNotification({ message: "", type: "" }), 3000);
-    };
+  const showNotification = (message, type = "success") => {
+    setNotification({ message, type });
+    setTimeout(() => setNotification({ message: "", type: "" }), 3000);
+  };
+
+  const closeNotification = () => setNotification({ message: "", type: "" });
 
   useEffect(() => {
     try {
@@ -97,7 +99,18 @@ export const TaskProvider = ({ children }) => {
   };
 
   return (
-    <TaskContext.Provider value={{ tasks, addTask, fetchTasks, toggleDone, deleteTask, updateTask, notification }}>
+    <TaskContext.Provider
+      value={{
+        tasks,
+        addTask,
+        fetchTasks,
+        toggleDone,
+        deleteTask,
+        updateTask,
+        notification,
+        closeNotification,
+      }}
+    >
       {children}
     </TaskContext.Provider>
   );

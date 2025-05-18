@@ -2,6 +2,7 @@ import {TaskTable} from "./TaskTable";
 import { useTaskContext } from "../context/TaskContext";
 import { useState } from "react";
 import { TaskEditForm } from "./TaskEditForm";
+import "../style/TaskList.css";
 
 export const TaskList = () => {
   const { tasks, toggleDone, deleteTask } = useTaskContext();
