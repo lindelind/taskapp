@@ -31,12 +31,12 @@
   border-collapse: collapse;
 }
 
-.task-table th,
+/* .task-table th,
 .task-table td {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-}
+} */
 
 /* .task-table th:last-child,
 .task-table th:nth-last-child(2),
